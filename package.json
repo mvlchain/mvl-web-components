@@ -1,0 +1,9 @@
+{
+  "name": "mvl-web-components",
+  "version": "1.0.0",
+  "description": "MVL Web Components",
+  "main": "index.js",
+  "repository": "git@github.com:mvlchain/mvl-web-components.git",
+  "author": "Electornic <jun.lee@mvlchain.io>",
+  "license": "MIT"
+}
