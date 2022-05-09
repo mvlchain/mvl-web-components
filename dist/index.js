@@ -1,17 +1,63 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
+		module.exports = factory(require("react"), require("@ethersproject/bignumber"), require("big-number-input"));
 	else if(typeof define === 'function' && define.amd)
-		define([], factory);
+		define(["react", "@ethersproject/bignumber", "big-number-input"], factory);
 	else if(typeof exports === 'object')
-		exports["lib"] = factory();
+		exports["lib"] = factory(require("react"), require("@ethersproject/bignumber"), require("big-number-input"));
 	else
-		root["lib"] = factory();
-})(this, () => {
+		root["lib"] = factory(root["react"], root["@ethersproject/bignumber"], root["big-number-input"]);
+})(this, (__WEBPACK_EXTERNAL_MODULE__156__, __WEBPACK_EXTERNAL_MODULE__482__, __WEBPACK_EXTERNAL_MODULE__610__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	// The require scope
-/******/ 	var __webpack_require__ = {};
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 482:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__482__;
+
+/***/ }),
+
+/***/ 610:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__610__;
+
+/***/ }),
+
+/***/ 156:
+/***/ ((module) => {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__156__;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
@@ -56,6 +102,8 @@ return /******/ (() => { // webpackBootstrap
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
@@ -64,13 +112,13 @@ __webpack_require__.d(__webpack_exports__, {
   "BigNumberInput": () => (/* reexport */ Input_BigNumberInput)
 });
 
-;// CONCATENATED MODULE: external "react"
-const external_react_namespaceObject = require("react");
-var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_namespaceObject);
-;// CONCATENATED MODULE: external "@ethersproject/bignumber"
-const bignumber_namespaceObject = require("@ethersproject/bignumber");
-;// CONCATENATED MODULE: external "big-number-input"
-const external_big_number_input_namespaceObject = require("big-number-input");
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(156);
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
+// EXTERNAL MODULE: external "@ethersproject/bignumber"
+var bignumber_ = __webpack_require__(482);
+// EXTERNAL MODULE: external "big-number-input"
+var external_big_number_input_ = __webpack_require__(610);
 ;// CONCATENATED MODULE: ./src/components/Input/BigNumberInput.tsx
 var __assign = undefined && undefined.__assign || function () {
   __assign = Object.assign || function (t) {
@@ -113,22 +161,22 @@ function BigNumberInput(_a) {
       inputRef = _a.inputRef,
       props = __rest(_a, ["value", "onChange", "inputRef"]);
 
-  var _c = (0,external_react_namespaceObject.useState)(value.toString()),
+  var _c = (0,external_react_.useState)(value.toString()),
       displayValue = _c[0],
       setDisplayValue = _c[1];
 
   var handleInputChange = function handleInputChange(targetValue) {
     var newValue = targetValue === '' ? '0' : targetValue;
     setDisplayValue(newValue);
-    onChange && onChange((0,bignumber_namespaceObject.parseFixed)(newValue));
+    onChange && onChange((0,bignumber_.parseFixed)(newValue));
   };
 
-  (0,external_react_namespaceObject.useEffect)(function () {
+  (0,external_react_.useEffect)(function () {
     inputRef && inputRef({
       setValue: setDisplayValue
     });
   }, []);
-  return external_react_default().createElement(external_big_number_input_namespaceObject.BigNumberInput, __assign({}, props, {
+  return external_react_default().createElement(external_big_number_input_.BigNumberInput, __assign({}, props, {
     value: displayValue,
     decimals: (_b = props.decimals) !== null && _b !== void 0 ? _b : 18,
     onChange: handleInputChange
@@ -141,6 +189,8 @@ function BigNumberInput(_a) {
 ;// CONCATENATED MODULE: ./src/components/index.ts
 
 ;// CONCATENATED MODULE: ./src/index.ts
+
+})();
 
 /******/ 	return __webpack_exports__;
 /******/ })()

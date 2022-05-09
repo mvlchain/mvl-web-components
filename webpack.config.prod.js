@@ -1,16 +1,17 @@
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   mode: 'production',
   target: 'node',
-  // externals: {
-  //   react: 'react',
-  //   'react-dom': 'react-dom'
-  // },
-  externals: [nodeExternals()],
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+    '@ethersproject/bignumber': '@ethersproject/bignumber',
+    'big-number-input': 'big-number-input'
+  },
+  // externals: [nodeExternals()],
   // entry: './components/index.ts',
   // externalsPresets: {
   //   node: true // in order to ignore built-in modules like path, fs, etc.
