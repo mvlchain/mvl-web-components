@@ -1,1 +1,1 @@
-declare module 'dist/@types/components'
+declare module './types'

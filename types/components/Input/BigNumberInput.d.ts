@@ -10,5 +10,5 @@ interface BigNumberInputProps extends Omit<_BigNumberInputProps, 'value' | 'onCh
     decimals?: number;
     inputRef?: (ref: BigNumberInputRef) => void;
 }
-export declare function BigNumberInput({ value, onChange, inputRef, ...props }: BigNumberInputProps): JSX.Element;
-export {};
+declare function BigNumberInput({ value, onChange, inputRef, ...props }: BigNumberInputProps): JSX.Element;
+export default BigNumberInput;

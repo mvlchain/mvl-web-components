@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { BigNumber, parseFixed } from '@ethersproject/bignumber';
 import { BigNumberInput as _BigNumberInput, BigNumberInputProps as _BigNumberInputProps } from 'big-number-input';
 
@@ -13,7 +13,7 @@ interface BigNumberInputProps extends Omit<_BigNumberInputProps, 'value' | 'onCh
   inputRef?: (ref: BigNumberInputRef) => void;
 }
 
-export function BigNumberInput({ value, onChange, inputRef, ...props }: BigNumberInputProps) {
+function BigNumberInput({ value, onChange, inputRef, ...props }: BigNumberInputProps) {
   const [displayValue, setDisplayValue] = useState(value.toString());
 
   const handleInputChange = (targetValue: string) => {
@@ -28,3 +28,5 @@ export function BigNumberInput({ value, onChange, inputRef, ...props }: BigNumbe
 
   return <_BigNumberInput {...props} value={displayValue} decimals={props.decimals ?? 18} onChange={handleInputChange} />;
 }
+
+export default BigNumberInput

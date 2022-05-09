@@ -14,6 +14,18 @@ return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_require__ = {};
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -49,29 +61,32 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "BigNumberInput": () => (/* reexport */ BigNumberInput)
+  "BigNumberInput": () => (/* reexport */ Input_BigNumberInput)
 });
 
-;// CONCATENATED MODULE: external "react/jsx-runtime"
-const jsx_runtime_namespaceObject = require("react/jsx-runtime");
 ;// CONCATENATED MODULE: external "react"
 const external_react_namespaceObject = require("react");
+var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_namespaceObject);
 ;// CONCATENATED MODULE: external "@ethersproject/bignumber"
 const bignumber_namespaceObject = require("@ethersproject/bignumber");
 ;// CONCATENATED MODULE: external "big-number-input"
 const external_big_number_input_namespaceObject = require("big-number-input");
-;// CONCATENATED MODULE: ./components/Input/BigNumberInput.tsx
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+;// CONCATENATED MODULE: ./src/components/Input/BigNumberInput.tsx
+var __assign = undefined && undefined.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+    return t;
+  };
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+  return __assign.apply(this, arguments);
+};
 
 var __rest = undefined && undefined.__rest || function (s, e) {
   var t = {};
@@ -98,10 +113,9 @@ function BigNumberInput(_a) {
       inputRef = _a.inputRef,
       props = __rest(_a, ["value", "onChange", "inputRef"]);
 
-  var _useState = (0,external_react_namespaceObject.useState)(value.toString()),
-      _useState2 = _slicedToArray(_useState, 2),
-      displayValue = _useState2[0],
-      setDisplayValue = _useState2[1];
+  var _c = (0,external_react_namespaceObject.useState)(value.toString()),
+      displayValue = _c[0],
+      setDisplayValue = _c[1];
 
   var handleInputChange = function handleInputChange(targetValue) {
     var newValue = targetValue === '' ? '0' : targetValue;
@@ -114,13 +128,19 @@ function BigNumberInput(_a) {
       setValue: setDisplayValue
     });
   }, []);
-  return (0,jsx_runtime_namespaceObject.jsx)(external_big_number_input_namespaceObject.BigNumberInput, Object.assign({}, props, {
+  return external_react_default().createElement(external_big_number_input_namespaceObject.BigNumberInput, __assign({}, props, {
     value: displayValue,
     decimals: (_b = props.decimals) !== null && _b !== void 0 ? _b : 18,
     onChange: handleInputChange
   }));
 }
-;// CONCATENATED MODULE: ./components/index.ts
+
+/* harmony default export */ const Input_BigNumberInput = (BigNumberInput);
+;// CONCATENATED MODULE: ./src/components/Input/index.ts
+
+;// CONCATENATED MODULE: ./src/components/index.ts
+
+;// CONCATENATED MODULE: ./src/index.ts
 
 /******/ 	return __webpack_exports__;
 /******/ })()

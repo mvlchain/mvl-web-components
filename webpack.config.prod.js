@@ -11,7 +11,7 @@ module.exports = {
   //   'react-dom': 'react-dom'
   // },
   externals: [nodeExternals()],
-  entry: './components/index.ts',
+  // entry: './components/index.ts',
   // externalsPresets: {
   //   node: true // in order to ignore built-in modules like path, fs, etc.
   // },
