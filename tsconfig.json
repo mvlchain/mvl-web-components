@@ -29,7 +29,7 @@
     "declaration": true,
     "declarationDir": "./@types",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "bundle",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
 //    "emitDeclarationOnly": true,

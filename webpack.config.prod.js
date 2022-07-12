@@ -1,6 +1,7 @@
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -11,14 +12,19 @@ module.exports = {
     '@ethersproject/bignumber': '@ethersproject/bignumber',
     'big-number-input': 'big-number-input'
   },
+  entry: {
+    'bundle': './index.js',
+    'bundle.min': './index.js'
+  },
   // externals: [nodeExternals()],
   // entry: './components/index.ts',
   // externalsPresets: {
   //   node: true // in order to ignore built-in modules like path, fs, etc.
   // },
+  devtool: 'source-map',
   output: {
     filename: 'index.js',
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'bundle'),
     library: 'lib',
     libraryTarget: 'umd',
     globalObject: 'this',
@@ -59,6 +65,9 @@ module.exports = {
         test: /\.ts$/,
         include: path.join(__dirname, './index.js')
       }),
+      new UglifyJsPlugin({
+        include: /\.min\.js$/,
+      })
     ],
   }
 };
